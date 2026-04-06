@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Number Book</string>
+
+    <!-- Toolbar -->
+    <string name="subtitle_zero_contacts">0 contact chargé</string>
+    <string name="ic_contacts_app_desc">Icône application contacts</string>
+
+    <!-- Boutons -->
+    <string name="btn_load_contacts">Charger\ncontacts</string>
+    <string name="btn_sync_contacts">Synchroniser</string>
+    <string name="btn_search">OK</string>
+
+    <!-- Recherche -->
+    <string name="search_hint">Rechercher par nom ou numéro…</string>
+    <string name="ic_search_desc">Icône recherche</string>
+
+    <!-- Labels -->
+    <string name="contacts_label">CONTACTS</string>
+
+    <!-- FAB -->
+    <string name="fab_add_contact_desc">Ajouter un contact</string>
+</resources>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_screen">
+
+    <!-- Barre supérieure -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:liftOnScroll="false">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:paddingHorizontal="16dp"
+            app:title="@string/app_name"
+            app:titleTextAppearance="@style/TextAppearance.NumberBook.Title"
+            app:subtitle="@string/subtitle_zero_contacts"
+            app:subtitleTextAppearance="@style/TextAppearance.NumberBook.Subtitle"
+            app:navigationIcon="@drawable/ic_contacts_app"
+            app:navigationContentDescription="@string/ic_contacts_app_desc" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenu principal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Boutons d'action -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLoadContacts"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="@string/btn_load_contacts"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                app:icon="@drawable/ic_person"
+                app:iconGravity="top"
+                app:iconPadding="4dp"
+                style="@style/Widget.NumberBook.Button.Primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSyncContacts"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="@string/btn_sync_contacts"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                app:icon="@drawable/ic_sync"
+                app:iconGravity="top"
+                app:iconPadding="4dp"
+                style="@style/Widget.NumberBook.Button.Secondary" />
+
+        </LinearLayout>
+
+        <!-- Barre de recherche -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/colorOutlineVariant">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="@string/ic_search_desc"
+                    android:layout_marginEnd="10dp"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+                <EditText
+                    android:id="@+id/etKeyword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/search_hint"
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:autofillHints="name"
+                    android:importantForAutofill="yes" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/btn_search"
+                    android:textSize="13sp"
+                    android:minWidth="48dp"
+                    style="@style/Widget.NumberBook.Button.Compact" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Label de section -->
+        <TextView
+            android:id="@+id/tvContactCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contacts_label"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.08"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Liste des contacts -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewContacts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp" />
+
+    </LinearLayout>
+
+    <!-- Bouton flottant -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="@string/fab_add_contact_desc"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorPrimary" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
