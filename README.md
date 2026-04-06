@@ -1,5 +1,4 @@
 
-https://github.com/user-attachments/assets/31f1e10e-b80b-4e5f-80df-0905c4c289a9
 # 📒 NumberBook
 
 Application Android connectée à un backend PHP/MySQL permettant de lire les contacts du téléphone, de les synchroniser vers un serveur distant et d'effectuer des recherches par nom ou numéro.
